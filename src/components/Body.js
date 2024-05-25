@@ -1,6 +1,7 @@
 import React from 'react'
 import Login from './Login'
 import Browse from './Browse'
+import NotFound from './NotFound';
 import { createBrowserRouter } from 'react-router-dom'
 import { RouterProvider } from 'react-router-dom'
 
@@ -13,7 +14,11 @@ const Body = () => {
         {
             path: "/browse",
             element: <Browse/>
-        }
+        },
+        {
+            path: '*', // This acts as a catch-all for any undefined routes
+            element: <NotFound />,
+        },
     ])
     
   return (

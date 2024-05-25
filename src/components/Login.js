@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import { auth } from '../utils/firebase';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
-import { USER_AVATAR } from '../utils/constants';
+import { BG_URL, USER_AVATAR } from '../utils/constants';
 
 const Login = () => {
 
@@ -77,14 +77,14 @@ const Login = () => {
      setIsSignInForm(!isSignInForm);
      setErrorMessage(null);     
   }
-
+  
   return (
     <div>
         <Header/>
         <div className='absolute w-full'>
-            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/41c789f0-7df5-4219-94c6-c66fe500590a/3149e5eb-4660-4e3d-9e65-b1e615229c64/IN-en-20240513-popsignuptwoweeks-perspective_alpha_website_small.jpg" alt='movie-banner' className='w-full'/>
+            <img src={BG_URL} alt='movie-banner' className='w-full h-screen object-cover'/>
         </div>
-        <form className='w-3/12 absolute p-12 bg-black my-36 mx-auto left-0 right-0 text-white bg-opacity-70' onSubmit={(e) => e.preventDefault() }>
+        <form className='w-full md:w-6/12 lg:w-4/12 absolute p-12 bg-black my-36 mx-auto left-0 right-0 text-white bg-opacity-70' onSubmit={(e) => e.preventDefault() }>
             <h1 className='font-bold text-3xl py-4'>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
             {!isSignInForm && (
                 <input ref={name} type='text' placeholder="Full Name"  className='p-2 mt-2 mb-2 h-12 text-black rounded-lg w-full'/>
